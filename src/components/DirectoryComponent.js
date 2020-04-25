@@ -20,19 +20,21 @@ class Directory extends Component {
 
         return (
             <div>
-                {this.props.campsites.map(campsite => {
-                return (
-                    <div key={campsite.id} className="col-md-5 m-1">
-                        <Card onClick={() => this.onCampsiteSelect(campsite)}>
-                            <CardImg width="100%" src={campsite.image} alt={campsite.name} />
-                            <CardImgOverlay>
-                                <CardTitle>{campsite.name}</CardTitle>
-                            </CardImgOverlay>
-                        </Card>
-                    </div>
-                );
-                })}
-                <CampsiteInfo campsite={this.state.selectedCampsite}/>
+                <div className="row">
+                    {this.props.campsites.map(campsite => {
+                    return (
+                        <div key={campsite.id} className="col-md-5 m-1">
+                            <Card onClick={() => this.onCampsiteSelect(campsite)}>
+                                <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                                <CardImgOverlay>
+                                    <CardTitle>{campsite.name}</CardTitle>
+                                </CardImgOverlay>
+                            </Card>
+                        </div>
+                    );
+                    })}
+                </div>
+                    <CampsiteInfo campsite={this.state.selectedCampsite}/>
             </div>
         );
     }
